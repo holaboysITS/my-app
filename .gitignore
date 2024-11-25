@@ -1,0 +1,59 @@
+# Node modules
+/node_modules/
+
+# Build output
+/build/
+/dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+/.pnp
+/.pnp.js
+
+# TypeScript
+*.tsbuildinfo
+
+# Local environment configuration
+/.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE/editor folders
+.vscode/
+/.idea/
+/*.sublime-workspace
+/*.sublime-project
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Tye configuration file (if you're using Tye for microservices)
+.tye/
+
+# Jest / Testing coverage reports
+/coverage/
+
+# Parcel (if you're using Parcel as a bundler)
+.cache/
+
+# Next.js build files (if using Next.js with TypeScript)
+.next/
+
+# Firebase emulators
+/firebase-debug.log
+
+# Storybook build files
+/storybook-static/
+
+# .env files (sometimes sensitive data is stored here)
+/.env.local
+.env.development.local
+.env.test.local
+.env.production.local

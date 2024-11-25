@@ -34,7 +34,7 @@ const Page1: React.FC = () => {
 
                   </div>
                   <div className="field">
-                    <button className="button">Accedi</button>
+                    <button className="button">ACCEDI</button>
                   </div>
                     </form>
                 </div>

@@ -14,7 +14,7 @@
   justify-content: center;
   width: 50%;
   height: 254px;
-  background: #00010538;
+  background: #00010500;
   border: 1px solid rgba(255, 255, 255, 0);
   
 }
@@ -74,15 +74,19 @@ button {
   background-color: #4141d8;
   margin-top: 10px;
   font-size: 14px;
-  padding: 7px 12px;
+  padding: 12px 44px;
   height: auto;
   font-weight: 500;
   color: white;
   border: none;
+  /* add space between letters */ 
+  letter-spacing: 3px;
+  font-weight: bold;
 }
 
 button:hover {
-  background-color: #5f5f9c;
+  background-color: #1d1d38;
+  cursor: pointer;
 }
 
 
@@ -128,13 +132,13 @@ button:hover {
     padding: 26px 20px;
     height: auto;
     font-weight: 500;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     width: 70%;
     box-sizing: border-box;
   }
 
   button:hover {
-    background-color: #5f5f9c;
+    background-color: #bdbdd8;
   }
 }

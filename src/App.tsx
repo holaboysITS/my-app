@@ -32,7 +32,13 @@ function AppContent() {
               <br></br>
               <h1>AZIENDA MECH</h1>
               <br></br>
-              <div className="name">matteo non sa il nome del gruppo</div>
+              <div className="name">"Matteo ora sa il nome del gruppo..."</div>
+              <div className='andreaEdit'>
+                <Link to="/login" className='andreaEdit'>Login</Link>
+                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/macchinari">Macchinari</Link>
+                <Link to="/impianti">Impianti</Link>
+              </div>
             </div>
           </div>
         </div>
@@ -44,12 +50,7 @@ function AppContent() {
           <Route path="/macchinari" element={<Macchinari />} />
           <Route path="/impianti" element={<Impianti />} />
         </Routes>
-        <div className='andreaEdit'>
-          <Link to="/login" className='andreaEdit'>Login</Link>
-          <Link to="/dashboard">Dashboard</Link>
-          <Link to="/macchinari">Macchinari</Link>
-          <Link to="/impianti">Impianti</Link>
-        </div>
+       
       </main>
     </div>
   );

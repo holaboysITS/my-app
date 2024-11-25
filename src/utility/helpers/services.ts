@@ -5,27 +5,36 @@ const config = {
   };
   
 
-export  const services = {
+export const services = {
     login,
     logout,
 };
 
 function login(username: string, password: string) {
 
-    const request = { //this thing is the content of the request that im about to send i guess
+    const request = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
 };
 
-    return fetch(config.apiUrl, request).then(responseHandler) //later
-
+    return fetch(config.apiUrl, request)
+                .then(responseHandler)
+                .then(item => { //crazy ass
+                        if (item != null) {
+                            item.authdata = window.btoa(username + ': ' + password);
+                            localStorage.setItem('user', JSON.stringify(item));
+                        }
+                }
+            )
 };
 
 function logout() {
-    localStorage.removeItem('user'); //didnt even have to create this but ok
+    localStorage.removeItem('user');
 };
 
 function responseHandler(r: Response) {
-    // later
+    return r.text().then(t => {
+        return t && JSON.parse(t)
+    })
 }

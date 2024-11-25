@@ -13,7 +13,6 @@ function App() {
     <Router>
     <div className="App">
       <div className="App-header">
-        
         <div className="e-card playing">
           <div className="image"></div>
           <div className="wave"></div>
@@ -35,13 +34,14 @@ function App() {
             <Route path="/macchinari" element={<Macchinari />} />
             <Route path="/impianti" element={<Impianti />} />
         </Routes> {/*routes isn't even a real html element it just defines routers*/}
-          <div className='andreaEdit'>
+
+        </main>
+        <div className='andreaEdit'>
               <Link to="/login" className='andreaEdit'>Login</Link> {/*touchable*/}
               <Link to="/dashboard">Dashboard</Link>
               <Link to="/macchinari">Macchinari</Link>
               <Link to="/impianti">Impianti</Link>
           </div>
-        </main>
       </div>
   </Router>
   );

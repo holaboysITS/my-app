@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { User } from '../utility/classes/user';
+
 const Page1: React.FC = () => {
   return (
     <div>
       <h1>Login</h1>
-      <p>Stefano qui fara il login e se la vede lui</p>
+      <p>rpova</p>
     </div>
   );
 };

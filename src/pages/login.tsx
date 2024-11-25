@@ -1,5 +1,8 @@
 import React from 'react';
 import './login.css';
+import { User } from '../utility/classes/user'
+
+
 const Page1: React.FC = () => {
 
   return (

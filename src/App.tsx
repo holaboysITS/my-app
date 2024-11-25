@@ -1,14 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Page2 from './pages/dashboard';
-import Page3 from './pages/impianti';
-import Page1 from './pages/login';
-import Page4 from './pages/macchinari';
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Dashboard from './pages/dashboard';
+import Impianti from './pages/impianti';
+import Login from './pages/login';
+import Macchinari from './pages/macchinari';
 
 
 function App() {
   return (
+    <Router>
     <div className="App">
       <div className="App-header">
         
@@ -27,12 +29,21 @@ function App() {
       </div>
     </div>
       <main>
-        <Page1 />
-        <Page2 />
-        <Page3 />
-        <Page4 />
-      </main>
-  </div>
+      <Routes>{/* absolutely do not touch or just ask me @AanRuu */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/macchinari" element={<Macchinari />} />
+            <Route path="/impianti" element={<Impianti />} />
+        </Routes> {/*routes isn't even a real html element it just defines routers*/}
+          <div className='andreaEdit'>
+              <Link to="/login" className='andreaEdit'>Login</Link> {/*touchable*/}
+              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/macchinari">Macchinari</Link>
+              <Link to="/impianti">Impianti</Link>
+          </div>
+        </main>
+      </div>
+  </Router>
   );
 }
 

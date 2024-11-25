@@ -6,6 +6,7 @@ import Page3 from './pages/impianti';
 import Page1 from './pages/login';
 import Page4 from './pages/macchinari';
 
+
 function App() {
   return (
     <div className="App">

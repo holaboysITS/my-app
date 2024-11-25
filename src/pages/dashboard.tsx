@@ -9,4 +9,5 @@ const Page2: React.FC = () => {
   );
 };
 
+
 export default Page2;

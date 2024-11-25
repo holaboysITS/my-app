@@ -10,27 +10,29 @@ import Page4 from './pages/macchinari';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          possiamo usare <code>javascript </code>invece di <code>typescript </code>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        
+        <div className="e-card playing">
+          <div className="image"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="infotop">
+            <img src={logo} className="App-logo" alt="logo" />
+            <br></br>     
+            <h1>AZIENDA MECH</h1>
+            <br></br>
+            <div className="name">matteo non sa il nome del gruppo</div>
+          </div>
+      </div>
+    </div>
       <main>
         <Page1 />
         <Page2 />
         <Page3 />
         <Page4 />
       </main>
-    </div>
+  </div>
   );
 }
 

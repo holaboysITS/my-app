@@ -24,9 +24,9 @@ function login(username: string, password: string) {
                         if (item != null) {
                             item.authdata = window.btoa(username + ': ' + password);
                             localStorage.setItem('user', JSON.stringify(item));
-                        }
+                        };
                 }
-            )
+            );
 };
 
 function logout() {
@@ -35,6 +35,6 @@ function logout() {
 
 function responseHandler(r: Response) {
     return r.text().then(t => {
-        return t && JSON.parse(t)
-    })
-}
+       if (!t) return JSON.parse(t);
+    });
+};

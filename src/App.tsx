@@ -35,9 +35,9 @@ function AppContent() {
               <div className="name">"Matteo ora sa il nome del gruppo..."</div>
               <div className='andreaEdit'>
                 <Link to="/login" className='andreaEdit'>Login</Link>
-                <Link to="/dashboard">Dashboard</Link>
+                {/* <Link to="/dashboard">Dashboard</Link>
                 <Link to="/macchinari">Macchinari</Link>
-                <Link to="/impianti">Impianti</Link>
+                <Link to="/impianti">Impianti</Link> */}
               </div>
             </div>
           </div>

@@ -1,14 +1,29 @@
 import './navbar.css';
+import { BrowserRouter as Router, Route, Routes, Link, useLocation } from "react-router-dom";
+
+
 function NavBar() {
     return (
-        <nav className="nav">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#news">Gestione Impianti</a></li>
-                <li><a href="#contact">Gestione Macchinari</a></li>
-                <li><a href="#about">Login</a></li>
-            </ul>
-        </nav>
+        <div className="radio-inputs">
+          <label className="radio">
+            <input type="radio" name="radio" checked={true} />
+            <span className="name">Home</span>
+          </label>
+          <label className="radio">
+            <input type="radio" name="radio" />
+            <span className="name">Dashboard</span>
+          </label>
+
+          <label className="radio">
+            <input type="radio" name="radio" />
+            <span className="name">Macchinari</span>
+          </label>
+
+          <label className="radio">
+            <input type="radio" name="radio" />
+            <span className="name">Impianti</span>
+          </label>
+        </div>
     )
 }
 

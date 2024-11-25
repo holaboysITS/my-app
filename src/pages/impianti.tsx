@@ -5,6 +5,7 @@ const Page3: React.FC = () => {
     <div>
       <h1>Impianti</h1>
       <p>berardino studiati sta roba</p>
+      <p>I LOVE GAY SAXOPHONES</p>
     </div>
   );
 };

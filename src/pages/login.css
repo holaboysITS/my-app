@@ -7,6 +7,10 @@
     margin: 0;
 }
 
+.infotop {
+  margin-top: 0;
+}
+
 .card {
   display: flex;
   flex-direction: column;

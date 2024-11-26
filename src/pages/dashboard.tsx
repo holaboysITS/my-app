@@ -14,14 +14,15 @@ const Page2: React.FC = () => {
       <div className="App-header">
       
           <div className="e-card playing">
+            
             <div className="image"></div>
             <div className="wave"></div>
             <div className="wave"></div>
             <div className="wave"></div>
             <div className="infotop">
+            <h1>DASHBOARD</h1>
               <img src={logo} className="App-logo" alt="logo" />
               <br></br>
-              <h1>DASHBOARD</h1>
               <br></br> 
               <div className="name">"asojdhaisdh gasiod hgaslkj haslkdhgasjk"</div>
               <div className='tab'>

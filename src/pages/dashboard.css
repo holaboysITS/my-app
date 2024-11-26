@@ -27,20 +27,36 @@
     margin-top: -50%;
     background: linear-gradient(744deg,#0A043C,#03506F 60%,#A3DDCB);
   }
+
+
+.infotop {
+    margin-top: -10%;
+}
   
 
-    h1 {
+h1 {
         font-size: 2em;
         margin-bottom: 0.5em;
         color: #ffffff;
     }
 
-    .tab {
+.tab {
         background-color: #1e65ff79;
         margin-top: 3%;
         margin-left: 10%;
         margin-right: 10%;
-        padding: 1%;
-        
+        padding: 1%;   
     }
 
+
+
+
+@media (max-width: 600px) {
+    .infotop{
+        font-size: 100%;
+    }
+
+    h1{
+        
+    }
+}

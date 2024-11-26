@@ -36,16 +36,16 @@
 
 h1 {
         font-size: 2em;
-        margin-bottom: 0.5em;
+        margin-bottom: 0em;
         color: #ffffff;
     }
 
 .tab {
-        background-color: #1e65ff79;
         margin-top: 3%;
         margin-left: 10%;
         margin-right: 10%;
         padding: 1%;   
+        background-color: #ffffff18;
     }
 
 
@@ -57,6 +57,13 @@ h1 {
     }
 
     h1{
-        
+        font-size: 1.5em !important;
+        margin-bottom: 2rem;
+    }
+
+    .tab {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 10%;
     }
 }

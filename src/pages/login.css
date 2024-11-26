@@ -7,9 +7,7 @@
     margin: 0;
 }
 
-.infotop {
-  margin-top: 0;
-}
+
 
 .card {
   display: flex;
@@ -27,6 +25,7 @@
   padding: 40px;
 }
 
+
 .card_header {
   display: flex;
   justify-content: center;
@@ -34,7 +33,7 @@
   width: 100%;
   height: 50px;
   background: #00010500;
-  margin-top: -10%;
+  margin-top: 0%;
   margin-bottom: 6%;
 }
 .card_header svg {
@@ -120,7 +119,7 @@ button:hover {
     color: #B2BAC8;
     font-size: 20px;
     display: block;
-    margin-bottom: -8px;
+    margin-bottom: 8px;
   }
 
   .input, .card {

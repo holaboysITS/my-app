@@ -1,22 +1,15 @@
-.App {
-  /*text-align: center;*/
-}
-
 h1 {
   color: white;
+  font-size: 11rem !important;
 }
 
 .App-logo {
-  height: 40vmin;
-  max-height: 50px;
+  height: 100vmin;
+  max-height: 200px;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #0A043C;
@@ -31,24 +24,33 @@ h1 {
 
 .Links {
   display: flex;
+  position: fixed;
+  top: -80px !important;
+  right: 50px !important;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
   margin-top: 30px;
+ 
 }
 
 .login-link {
   color: #61dafb;
   text-decoration: none;
-  padding: 0px 4px 4px 4px;
+  padding: 5px 10px 5px 10px;
+  width: 100%;
 }
 
 .login-link:hover {
   color: #ffffff;
   background-color: rgba(240, 248, 255, 0.123);
+  padding: 5px 10px 5px 10px;
+  border-bottom: solid 1px white;
 }
+
+
 
 /* ANIMATION */ 
 
@@ -64,17 +66,7 @@ h1 {
   overflow: hidden;
 }
 
-.wave {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0.6;
-  left: 0;
-  top: 0;
-  margin-left: -30%;
-  margin-top: -50%;
-  background: linear-gradient(744deg,#0A043C,#03506F 60%,#A3DDCB);
-}
+
 
 .icon {
   width: 3em;
@@ -94,60 +86,89 @@ h1 {
 }
 
 .name {
-  font-size: 14px;
+  justify-self: center;
+  width: 50%;
+  font-size: 24px;
   font-weight: 100;
   position: relative;
   top: 1em;
   text-transform: lowercase;
   margin-top: -50px;
+  padding: 20px;
+  border-top: solid 1px white;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  left: 0;
+  top: 0;
+  margin-left: -30%;
+  margin-top: -50%;
+  background: linear-gradient(744deg,#0A043C,#03506F 60%,#A3DDCB);
 }
 
 .wave:nth-child(2),
 .wave:nth-child(3) {
   top: 210px;
 }
-
 .playing .wave {
   border-radius: 40%;
   animation: wave 3000ms infinite linear;
 }
-
 .wave {
   border-radius: 40%;
   animation: wave 55s infinite linear;
 }
-
 .playing .wave:nth-child(2) {
   animation-duration: 4000ms;
 }
-
 .wave:nth-child(2) {
   animation-duration: 50s;
 }
-
 .playing .wave:nth-child(3) {
   animation-duration: 5000ms;
 }
-
 .wave:nth-child(3) {
   animation-duration: 45s;
 }
-
 @keyframes wave {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 600px) {
+  html{
+height: auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  .Links {
+    top: -130px !important;
+
   }
+
+  a.login-link {
+    font-size:  1.5em !important; 
+  }
+
+  h1 {
+    font-size: 4.5em !important;
+  }
+
+  .name {
+    font-size: 1em;
+    width: 80%;
+    height: auto;
+    border: solid 0px white;
+    background-color: #ffffff13;
+    border-radius: 4px;
+    padding: 20px;
+  }
+  
 }

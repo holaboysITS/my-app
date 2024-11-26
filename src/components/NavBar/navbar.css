@@ -2,21 +2,59 @@
 
 @keyframes checked-anim {
     50% {
-        width: 3000px;
-        height: 3000px;
+        width: 230px;
+        height: 350px;
+        border-bottom-right-radius: 100px;
     }
     100% {
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
+        width:230px;
+        height: 350px;
+        border-bottom-right-radius: 100px;
     }
 }
 @keyframes not-checked-anim {
     0% {
-        width: 3000px;
-        height: 3000px;
+        width: 230px;
+        height: 300px;
     }
 }
+
+@media screen and (max-width: 600px) {
+    @keyframes checked-anim {
+        50% {
+            width: 3000px;
+            height: 3000px;
+            border-bottom-right-radius: 0px;
+        }
+        100% {
+            width:100%;
+            height: 100%;
+            border-bottom-right-radius: 0px;
+        }
+    }
+    @keyframes not-checked-anim {
+        0% {
+            width: 3000px;
+            height: 3000px;
+        }
+    }
+
+    li, a{
+        margin: 75px 0 -55px 0;
+        color: #03A9F4;
+        font: 44pt "Roboto", sans-serif !important;
+        font-weight: 900;
+        line-height: 1.8;
+        text-decoration: none;
+        text-transform: none;
+        list-style: none;
+        outline: 0;
+        display: none;
+        margin-top: 100pt !important;
+    }
+}
+
+
 li, a {
     margin: 75px 0 -55px 0;
     color: #03A9F4;
@@ -56,7 +94,7 @@ html, body {
     position: absolute;
     top: 25px;
     left: 25px;
-    background: #03A9F4;
+    background: #ff6a07;
     width: 30px;
     height: 5px;
     transition: .2s ease;
@@ -107,6 +145,7 @@ html, body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
     animation: not-checked-anim .2s both;
     transition: .2s;
+
 }
 
 

@@ -33,8 +33,8 @@ function AppContent() {
               <h1>AZIENDA MECH</h1>
               <br></br>
               <div className="name">"Matteo ora sa il nome del gruppo..."</div>
-              <div className='andreaEdit'>
-                <Link to="/login" className='andreaEdit'>Login</Link>
+              <div className='Links'>
+                <Link to="/login" className='login-link'>Login</Link>
                 {/* <Link to="/dashboard">Dashboard</Link>
                 <Link to="/macchinari">Macchinari</Link>
                 <Link to="/impianti">Impianti</Link> */}

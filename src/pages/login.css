@@ -47,10 +47,12 @@
 }
 
 .input {
-  border-radius: 5px;
+  font-size: 16px;
+  border-radius: 2px;
   background-color: #e9e9f7;
   padding: 5px;
   width: 42%;
+  height: 24px;
   color: #7a7ab3;
   border: 1px solid #dadaf7
 }

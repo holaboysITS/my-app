@@ -1,14 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar/navbar';
 import Table from '../components/Table/table';
+import './dashboard.css';
+import logo from '../logo.svg';
 
 const Page2: React.FC = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
-      <NavBar/>
-      <p>per la dashboard se la vedono dev e matteo il re di tutto l universo conosciuto</p>
-      <Table/>
+      <div className='NAVBAR'>
+        <NavBar/>
+      </div>
+      <div className="App-header">
+      
+          <div className="e-card playing">
+            <div className="image"></div>
+            <div className="wave"></div>
+            <div className="wave"></div>
+            <div className="wave"></div>
+            <div className="infotop">
+              <img src={logo} className="App-logo" alt="logo" />
+              <br></br>
+              <h1>DASHBOARD</h1>
+              <br></br> 
+              <div className="name">"asojdhaisdh gasiod hgaslkj haslkdhgasjk"</div>
+              <div className='tab'>
+               <Table/>
+              </div>
+            </div>
+          </div>
+        </div>
+      {/*
+      COMMENTI QUI 
+        <table/>
+      */}
     </div>
   );
 };

@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  :root {
+  --primary-color: #D96AA7;
+  --secondary-color: #422C73;
+  --complimentary-color: #88BFB5;
+  --contrast-color: #F2E527;
+  --light-color: #D2A9D9;
+  }
+
+.NAVBAR {
+    z-index:23;
+    position: fixed;
+}
+
+.wave {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -30%;
+    margin-top: -50%;
+    background: linear-gradient(744deg,#0A043C,#03506F 60%,#A3DDCB);
+  }
+  
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+        color: #ffffff;
+    }
+
+    .tab {
+        background-color: #1e65ff79;
+        margin-top: 3%;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding: 1%;
+        
+    }
+

@@ -29,6 +29,26 @@ h1 {
   color: white;
 }
 
+.Links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin-top: 30px;
+}
+
+.login-link {
+  color: #61dafb;
+  text-decoration: none;
+  padding: 0px 4px 4px 4px;
+}
+
+.login-link:hover {
+  color: #ffffff;
+  background-color: rgba(240, 248, 255, 0.123);
+}
 
 /* ANIMATION */ 
 
@@ -79,6 +99,7 @@ h1 {
   position: relative;
   top: 1em;
   text-transform: lowercase;
+  margin-top: -50px;
 }
 
 .wave:nth-child(2),

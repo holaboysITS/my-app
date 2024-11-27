@@ -30,26 +30,28 @@ const Page1: React.FC = () => {
 
   const handleSubmit = async (form: React.FormEvent) => {
 
-      form.preventDefault();
-      console.log("handle called")
-     if (username && password) {
+    form.preventDefault();
+    console.log("handle called")
+   if (username && password) {
 
-      try {
-          const user = await login(username, password)
-          console.log('log iusername')
-          if (user) {
-              navigate('/dashboard');
-          } else {
-              setLoginErrors('Credenziali errate, riprovare');
-          }
-      } catch (ex) {
-          throw ex;
-      };
-      
-     } else {
-      setLoginErrors('Inserire sia username che password');
-     }
-  }
+    try {
+        const user = await login(username, password)
+        console.log('log iusername')
+        if (user) {
+            navigate('/dashboard');
+        }
+
+    } catch (ex) {
+      if (ex instanceof Error) {
+        setLoginErrors(ex.message);
+      } else {
+        setLoginErrors("Unknown error")
+      }
+    };
+   } else {
+    setLoginErrors('Inserire sia username che password');
+   }
+}
 
 
   return (
@@ -84,6 +86,9 @@ const Page1: React.FC = () => {
                     <button className="button">ACCEDI</button>
                   </div>
                     </form>
+                    <div>
+                      <p>{loginErrors}</p>
+                    </div>
                 </div>
               <br></br>
             </div>

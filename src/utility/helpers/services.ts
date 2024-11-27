@@ -1,8 +1,21 @@
-import { UserResponse } from '../classes/user'
-
+import { UserResponse, } from '../classes/user'
+import { useNavigate } from 'react-router-dom';
 const config = {
     apiUrl: "http://192.168.99.108:8000/user"
   };
+
+
+  export const useHardLogout = () => {
+    const navigate = useNavigate();
+  
+    const hardLogout = () => {
+      logout();
+      navigate('/login');
+    };
+  
+    return hardLogout;
+  };
+  
 
 export function login(username: string, password: string): Promise<any> {
         console.log("login called")
@@ -26,6 +39,10 @@ export function login(username: string, password: string): Promise<any> {
                 throw e;
             });
 
+
+
+            
+
     // return fetch(config.apiUrl, request)
     //             .then(responseHandler)
     //             .then(item => {
@@ -42,6 +59,10 @@ export function login(username: string, password: string): Promise<any> {
 export function logout() {
     localStorage.removeItem('user');
 };
+
+
+
+
 
 function responseHandler(r: Response) {
     console.log(r)
@@ -60,4 +81,7 @@ function responseHandler(r: Response) {
             return Promise.reject(r.statusText);
         };
     });
+
+
+    
 };

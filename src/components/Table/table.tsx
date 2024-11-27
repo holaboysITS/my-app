@@ -10,16 +10,24 @@ function Table() {
             else setStyle("shown")
     }
     return (
-        <table>
-            <tr onClick={showTable}>
-                <th>Nomino del Impianto</th>
+        <table onClick={showTable}>
+            <tr >
+                <th>IMPIANTO n.</th>
             </tr>
             <tr className={stile}>
-                <td>1</td>
                 <td>
-                    <ul>
-                        <li>Macchinarino</li>
-                    </ul>
+                    
+                        <div className="box-content">
+                            <span className='exploded_dash'></span>
+                            <div className='api_info'>
+                            <span>impianto</span>
+                            <span>macchinario</span>
+                            <span>data</span>
+                            <span>ora</span>
+                            <span>check</span>
+                            </div>
+                        </div>
+                    
                 </td>
             </tr>
         </table>

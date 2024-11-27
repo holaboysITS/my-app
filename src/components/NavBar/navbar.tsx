@@ -17,7 +17,6 @@ function NavBar() {
           <li><Link to="/dashboard">Dashboard</Link></li>
           <li><Link to="/macchinari">Macchinari</Link></li>
           <li><Link to="/impianti">Impianti</Link></li>
-          <li><Link to="/" >LOGOUT</Link></li>
 
         </ul>
 

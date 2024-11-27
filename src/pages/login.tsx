@@ -1,9 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './login.css';
-import { User } from '../utility/classes/user'
+import { login, logout } from '../utility/helpers/services'
+import { useNavigate } from 'react-router-dom';
 
 
 const Page1: React.FC = () => {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        
+        const {name, value} = e.target;
+
+        if (name === "username") { //swapped 'email' to 'username' because of the requirements
+            setUsername(value);
+        } else {
+            setPassword(value); //just checks if target name is username or password, but i dont think it's going to work tbf
+        };
+    
+    };
+
+    const handleSubmit = () => {
+       if (username && password) {
+        try {
+            login(username, password);
+        } catch (e) {
+            throw e;
+        };
+        navigate('/dashboard');
+       }
+    }
+    
+    logout();
 
   return (
     <div className='login-main'>
@@ -16,10 +46,10 @@ const Page1: React.FC = () => {
                     <div className="flip-card__inner">
                         <div className="flip-card__front">
                             <div className="title">Accedi</div>
-                            <form className="flip-card__form" action="">
-                                <input className="flip-card__input" name="email" placeholder="Email" type="email" />
-                                <input className="flip-card__input" name="password" placeholder="Password" type="password" />
-                                <button className="flip-card__btn">Accedi</button>
+                            <form className="flip-card__form" onSubmit={handleSubmit}>
+                                <input className="flip-card__input" name="username" placeholder="Username" type="text" onChange={handleInputChange}/>
+                                <input className="flip-card__input" name="password" placeholder="Password" type="password" onChange={handleInputChange}/>
+                                <button className="flip-card__btn" type='submit'>Accedi</button>
                             </form>
                         </div>
                         <div className="flip-card__back">

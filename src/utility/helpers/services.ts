@@ -1,16 +1,8 @@
-import authHelper from "./authHelper";
-
 const config = {
     apiUrl: "whatever the fuck my api is going to be"
   };
-  
 
-export const services = {
-    login,
-    logout,
-};
-
-function login(username: string, password: string) {
+export function login(username: string, password: string) {
 
     const request = {
         method: 'POST',
@@ -22,19 +14,31 @@ function login(username: string, password: string) {
                 .then(responseHandler)
                 .then(item => { //crazy ass
                         if (item != null) {
-                            item.authdata = window.btoa(username + ': ' + password);
-                            localStorage.setItem('user', JSON.stringify(item));
+                            localStorage.setItem('user', item); //i still have no clue what i'm doing but i can't test it unless we set up a shitty back end
                         };
                 }
-            );
+            )
+            .catch(e => {
+                throw e;
+            });
 };
 
-function logout() {
+export function logout() {
     localStorage.removeItem('user');
 };
 
 function responseHandler(r: Response) {
     return r.text().then(t => {
-       if (!t) return JSON.parse(t);
+       if (r.ok) { 
+            try {
+                const result = JSON.parse(t);
+                return result.token? result.token : null;
+            } catch (e) {
+                console.error('Error:', e);
+                return null;
+            }
+        } else {
+            return Promise.reject(r.statusText);
+        };
     });
 };

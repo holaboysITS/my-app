@@ -1,3 +1,9 @@
-export interface Poggers {
-    ciao:string
+export enum Role {
+    ADMIN = 'admin',
+    OPERATOR = 'operator'
+}
+
+export interface UserResponse {
+    username: string,
+    role: Role
 }

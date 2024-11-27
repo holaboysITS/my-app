@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './login.css';
 import { login, logout } from '../utility/helpers/services'
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,12 @@ const Page1: React.FC = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loginErrors, setLoginErrors] = useState('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        logout();
+    }, [])
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         
@@ -32,15 +37,18 @@ const Page1: React.FC = () => {
             const user = await login(username, password);
             if (user) {
                 navigate('/dashboard');
+            } else {
+                setLoginErrors('Credenziali errate, riprovare');
             }
         } catch (ex) {
             throw ex;
         };
         
+       } else {
+        setLoginErrors('Inserire sia username che password');
        }
     }
-    
-    logout();
+
 
   return (
     <div className='login-main'>

@@ -17,7 +17,7 @@ export function login(username: string, password: string): Promise<any> {
                 .then((item: UserResponse) => {
                         if (item != null) {
                             const role = item.role;
-                            localStorage.setItem('user', role);
+                            localStorage.setItem('user', role.toString());
                         };
                 }
             )

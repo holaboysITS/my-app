@@ -2,7 +2,7 @@ const config = {
     apiUrl: "whatever the fuck my api is going to be"
   };
 
-export function login(username: string, password: string) {
+export function login(username: string, password: string): Promise<any> {
 
     const request = {
         method: 'POST',
@@ -14,7 +14,7 @@ export function login(username: string, password: string) {
                 .then(responseHandler)
                 .then(item => { //crazy ass
                         if (item != null) {
-                            localStorage.setItem('user', item); //i still have no clue what i'm doing but i can't test it unless we set up a shitty back end
+                            localStorage.setItem('user', item);
                         };
                 }
             )
@@ -35,7 +35,7 @@ function responseHandler(r: Response) {
                 return result.token? result.token : null;
             } catch (e) {
                 console.error('Error:', e);
-                return null;
+                return Promise.reject('Error with response format')
             }
         } else {
             return Promise.reject(r.statusText);

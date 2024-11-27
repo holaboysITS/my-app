@@ -22,14 +22,21 @@ const Page1: React.FC = () => {
     
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async (form: React.FormEvent) => {
+
+        form.preventDefault();
+
        if (username && password) {
+
         try {
-            login(username, password);
-        } catch (e) {
-            throw e;
+            const user = await login(username, password);
+            if (user) {
+                navigate('/dashboard');
+            }
+        } catch (ex) {
+            throw ex;
         };
-        navigate('/dashboard');
+        
        }
     }
     

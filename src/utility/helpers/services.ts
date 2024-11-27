@@ -1,31 +1,63 @@
-import authHelper from "./authHelper";
+import { UserResponse } from '../classes/user'
 
 const config = {
-    apiUrl: "whatever the fuck my api is going to be"
+    apiUrl: "http://192.168.99.108:8000/user"
   };
-  
 
-export  const services = {
-    login,
-    logout,
-};
-
-function login(username: string, password: string) {
-
-    const request = { //this thing is the content of the request that im about to send i guess
+export function login(username: string, password: string): Promise<any> {
+        console.log("login called")
+    const request = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
 };
 
-    return fetch(config.apiUrl, request).then(responseHandler) //later
+        return fetch(config.apiUrl, request)
+                .then(responseHandler)
+                .then((item: UserResponse) => {
+                        if (item != null) {
+                            const role = item.username;
+                            localStorage.setItem('user', role.toString());
+                            return item.username
+                        };
+                }
+            )
+            .catch(e => {
+                throw e;
+            });
 
+    // return fetch(config.apiUrl, request)
+    //             .then(responseHandler)
+    //             .then(item => {
+    //                     if (item != null) {
+    //                         localStorage.setItem('user', item);
+    //                     };
+    //             }
+    //         )
+    //         .catch(e => {
+    //             throw e;
+    //         });
 };
 
-function logout() {
-    localStorage.removeItem('user'); //didnt even have to create this but ok
+export function logout() {
+    localStorage.removeItem('user');
 };
 
 function responseHandler(r: Response) {
-    // later
-}
+    console.log(r)
+    return r.json().then(t => {
+        console.log(t)
+       if (r.ok) { 
+            try {
+                // const result = JSON.parse(t);
+                // return result.token? result.token : null;
+                return Promise.resolve(t)
+            } catch (e) {
+                console.error('Error:', e);
+                return Promise.reject('Error with response format')
+            }
+        } else {
+            return Promise.reject(r.statusText);
+        };
+    });
+};

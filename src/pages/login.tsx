@@ -1,9 +1,56 @@
 import React from 'react';
 import './login.css';
-import { User } from '../utility/classes/user'
-
+import { login, logout } from '../utility/helpers/services'
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Page1: React.FC = () => {
+
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginErrors, setLoginErrors] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+      logout();
+  }, [])
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      
+      const {name, value} = e.target;
+
+      if (name === "username") { //swapped 'email' to 'username' because of the requirements
+          setUsername(value);
+      } else {
+          setPassword(value); //just checks if target name is username or password, but i dont think it's going to work tbf
+      };
+  
+  };
+
+  const handleSubmit = async (form: React.FormEvent) => {
+
+      form.preventDefault();
+      console.log("handle called")
+     if (username && password) {
+
+      try {
+          const user = await login(username, password)
+          console.log('log iusername')
+          if (user) {
+              navigate('/dashboard');
+          } else {
+              setLoginErrors('Credenziali errate, riprovare');
+          }
+      } catch (ex) {
+          throw ex;
+      };
+      
+     } else {
+      setLoginErrors('Inserire sia username che password');
+     }
+  }
+
 
   return (
     <div className="App-header">
@@ -23,14 +70,14 @@ const Page1: React.FC = () => {
                     <h1 className="form_heading">Log in</h1>
                 </div>
                 <div className='login-main'>
-                <form className="form card">
+                <form className="form card" onSubmit={handleSubmit}>
                   <div className="field">
                     <label htmlFor="username">Username</label>
-                    <input className="input" name="username" type="text" placeholder="Username" id="username" />
+                    <input className="input" name="username" type="text" placeholder="Username" id="username" onChange={handleInputChange} />
                   </div>
                   <div className="field">
                     <label htmlFor="password">Password</label>
-                    <input className="input" name="user_password" type="password" placeholder="Password" id="password" />
+                    <input className="input" name="password" type="password" placeholder="Password" id="password" onChange={handleInputChange} />
 
                   </div>
                   <div className="field">

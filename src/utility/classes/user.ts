@@ -1,4 +1,8 @@
-export interface User { //placeholder, gonna fix it later (if i need to)
-    header: string
-    authdata: string 
+export enum Role {
+    ADMIN = 'admin',
+    OPERATOR = 'operator'
+}
+
+export interface UserResponse {
+    username: string,
 }

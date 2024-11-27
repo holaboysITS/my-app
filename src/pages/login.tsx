@@ -13,7 +13,7 @@ const Page1: React.FC = () => {
             <div className="wave"></div>
             <div className="wave"></div>
             <div className="wave"></div>
-            <div className="infotop">
+            <div className="infotoplogin">
               <br></br>
                 <div className="card_header">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

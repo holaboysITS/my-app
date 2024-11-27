@@ -7,6 +7,7 @@ h1 {
   height: 100vmin;
   max-height: 200px;
   pointer-events: none;
+  margin-bottom: 100px;
 }
 
 
@@ -75,6 +76,8 @@ h1 {
 }
 
 .infotop {
+  margin-top: -250px !important;
+  
   text-align: center;
   font-size: 5vh;
   position: absolute;
@@ -93,7 +96,7 @@ h1 {
   position: relative;
   top: 1em;
   text-transform: lowercase;
-  margin-top: -50px;
+  margin-top: 50px !important;
   padding: 20px;
   border-top: solid 1px white;
 }
@@ -148,21 +151,41 @@ h1 {
 height: auto;
   }
 
+
+
+
   .Links {
     top: -130px !important;
-
+    right: -20px !important;
   }
 
   a.login-link {
+    color: rgb(255, 255, 255);
     font-size:  1.5em !important; 
+    background-color: #ffffff2f;
+    border-right: 20px solid #0A043C;
   }
 
-  h1 {
-    font-size: 4.5em !important;
+  a.login-link:hover {
+    color: orangered;
+    background-color: #ffffff;
+    border-right: 20px solid #0A043C;
+  }
+
+  .App-logo {
+    margin-bottom: 0px;
+    margin-top: 1.5rem;
+  }
+
+  .titolo {
+    font-size: 4.5rem !important;
+    line-height: 1em;
+    margin-bottom: 0;
   }
 
   .name {
-    font-size: 1em;
+    margin-top: 0 !important;
+    font-size: em;
     width: 80%;
     height: auto;
     border: solid 0px white;

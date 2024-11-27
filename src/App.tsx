@@ -30,8 +30,8 @@ function AppContent() {
             <div className="infotop">
               <img src={logo} className="App-logo" alt="logo" />
               <br></br>
-              <h1>NOME AZIENDA</h1>
-              <br></br><p>info:</p><br />
+              <h1 className='titolo'>NOME AZIENDA</h1>
+              <br></br><br />
               <div className="name">Lorem ipsum dolor sit amet,
                  consectetur adipiscing elit. Nunc scelerisque 
                  velit at lectus vestibulum, vitae venenatis dolor 

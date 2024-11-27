@@ -5,5 +5,4 @@ export enum Role {
 
 export interface UserResponse {
     username: string,
-    role: Role
 }

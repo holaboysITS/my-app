@@ -30,11 +30,12 @@ const Page1: React.FC = () => {
     const handleSubmit = async (form: React.FormEvent) => {
 
         form.preventDefault();
-
+        console.log("handle called")
        if (username && password) {
 
         try {
-            const user = await login(username, password);
+            const user = await login(username, password)
+            console.log('log iusername')
             if (user) {
                 navigate('/dashboard');
             } else {

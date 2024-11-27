@@ -1,11 +1,11 @@
 import { UserResponse } from '../classes/user'
 
 const config = {
-    apiUrl: "whatever the fuck my api is going to be"
+    apiUrl: "http://127.0.0.1:8000/user"
   };
 
 export function login(username: string, password: string): Promise<any> {
-
+        console.log("login called")
     const request = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -16,8 +16,9 @@ export function login(username: string, password: string): Promise<any> {
                 .then(responseHandler)
                 .then((item: UserResponse) => {
                         if (item != null) {
-                            const role = item.role;
+                            const role = item.username;
                             localStorage.setItem('user', role.toString());
+                            return item.username
                         };
                 }
             )
@@ -43,7 +44,9 @@ export function logout() {
 };
 
 function responseHandler(r: Response) {
+    console.log(r)
     return r.json().then(t => {
+        console.log(t)
        if (r.ok) { 
             try {
                 // const result = JSON.parse(t);

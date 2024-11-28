@@ -4,15 +4,15 @@ import { Plant } from '../classes/plant';
 import { useNavigate } from 'react-router-dom';
 
 const config = {
-    loginUrl:           "http://192.168.99.108:8000/user",
-    machineriesGetUrl:  "http://192.168.99.108:8000/machinery",
-    plantsGetUrl:       "http://192.168.99.108:8000/plants",
-    machineryGetUrl:    "http://192.168.99.108:8000/machinery",
-    plantGetUrl:        "http://192.168.99.108:8000/plants",
-    plantPostUrl:       "http://192.168.99.108:8000/plants",
-    machineryPostUrl:   "http://192.168.99.108:8000/plants",
-    plantDeleteUrl:     "http://192.168.99.108:8000/plants",
-    machineryDeleteUrl: "http://192.168.99.108:8000/machinery"
+    loginUrl:           "http://127.0.0.1:8000/user",
+    machineriesGetUrl:  "http://127.0.0.1:8000/machineries",
+    plantsGetUrl:       "http://127.0.0.1:8000/plants",
+    machineryGetUrl:    "http://127.0.0.1:8000/machinery",
+    plantGetUrl:        "http://127.0.0.1:8000/plants",
+    plantPostUrl:       "http://127.0.0.1:8000/plants",
+    machineryPostUrl:   "http://127.0.0.1:8000/plants",
+    plantDeleteUrl:     "http://127.0.0.1:8000/plants",
+    machineryDeleteUrl: "http://127.0.0.1:8000/machinery"
   };
 
   export async function deleteMachineryItem(id: string) {
@@ -58,7 +58,9 @@ const config = {
         if (!r.ok) {
             throw new Error('response not ok');
         }
-        return await r.json(); 
+        const result = await r.json(); 
+        localStorage.setItem('plantByIdResult', JSON.stringify(result));
+        return result
     } catch (error) {
         console.error('Error:', error);
         throw error;
@@ -72,7 +74,9 @@ export async function getPlantItem(id: string): Promise<Plant> {
         if (!r.ok) {
             throw new Error('response not ok');
         }
-        return await r.json(); 
+        const result = await r.json(); 
+        localStorage.setItem('plantByIdResult', JSON.stringify(result));
+        return result
     } catch (error) {
         console.error('Error:', error);
         throw error;
@@ -86,6 +90,12 @@ export async function getPlantItem(id: string): Promise<Plant> {
             throw new Error('response not ok');
         }
         const machineryItems: Machinery[] = await response.json();
+        let c = 0;
+        localStorage.clear();
+        machineryItems.forEach((machinery) => {
+            localStorage.setItem(c.toString(), JSON.stringify(machinery));
+            c++
+        })
         return machineryItems;
     } catch (error) {
         console.error('errore:', error);
@@ -100,6 +110,12 @@ export async function getPlantItems(): Promise<Plant[]> {
             throw new Error('response not ok');
         }
         const newPlant: Plant[] = await response.json();
+        let c = 0;
+        localStorage.clear();
+        newPlant.forEach((plant) => {
+            localStorage.setItem(c.toString(), JSON.stringify(plant));
+            c++
+        })
         return newPlant;
     } catch (error) {
         console.error('Errore:', error);
@@ -129,13 +145,13 @@ export async function newMachinery(plant_id: number, name: string, type: string,
 }
 
 export async function newPlant(name: string, location: string, description: string) {
-
+    let machineries = ['']
     const request = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, location, description})
+            body: JSON.stringify({ name, location, description, machineries})
 };
-
+    console.log(request);
     try {
         const r = await fetch(config.plantPostUrl, request);
         if (!r.ok) {

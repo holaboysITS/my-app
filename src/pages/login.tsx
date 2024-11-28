@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './login.css';
 import { login, logout } from '../utility/helpers/services'
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 const Page1: React.FC = () => {
 

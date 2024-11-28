@@ -3,7 +3,8 @@ import NavBar from '../components/NavBar/navbar';
 import vibecat from '../utility/vibecat.gif';
 import maxwell from '../utility/maxwell.gif';
 import miaocute from '../utility/miaocute.gif';
-
+import kisscat from '../utility/catkiss.gif';
+import kickingcat from '../utility/kickingcat.gif';
 
 function Aboutus() {
     return (
@@ -101,7 +102,7 @@ function Aboutus() {
 				
 				<div className="person-box">
 					<div className="box-avatar">
-						<img src="" alt="Gatto Gif"/>
+						<img src={kickingcat} alt="Gatto Gif"/>
 					</div>
 					
 					<div className="box-bio">
@@ -174,7 +175,7 @@ function Aboutus() {
 				
 				<div className="person-box">
 					<div className="box-avatar">
-						<img src="" alt="Giuseppe Giuffreda, HGatto Gif"/>
+						<img src={kisscat} alt="Giuseppe Giuffreda, HGatto Gif"/>
 					</div>
 					
 					<div className="box-bio">

@@ -4,7 +4,7 @@ import { Plant } from '../classes/plant';
 import { useNavigate } from 'react-router-dom';
 
 const config = {
-    loginUrl:           "http://192.168.99.108:8000/login",
+    loginUrl:           "http://192.168.99.108:8000/user",
     machineriesGetUrl:  "http://192.168.99.108:8000/machinery",
     plantsGetUrl:       "http://192.168.99.108:8000/plants",
     machineryGetUrl:    "http://192.168.99.108:8000/machinery",

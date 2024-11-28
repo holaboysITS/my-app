@@ -14,7 +14,9 @@ function Aboutus() {
 
 
     <div className="dashboardab">
-
+		<div className='NAVBAR'>
+          <NavBar/>
+        </div>
 		<div className="wavetwo"></div>
     	<div className="wavetwo"></div>
     	<div className="wavetwo"></div>

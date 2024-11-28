@@ -123,7 +123,7 @@ export async function getPlantItems(): Promise<Plant[]> {
     }
 }
 
-export async function newMachinery(plant_id: number, name: string, type: string, status: string, specifications: Record<string, string>) {
+export async function newMachinery(plant_id: string, name: string, type: string, status: string, specifications: Record<string, string>) {
 
     const request = {
             method: 'POST',

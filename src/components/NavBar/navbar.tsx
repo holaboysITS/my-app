@@ -4,6 +4,7 @@ import Dashboard from '../../pages/dashboard';
 import Impianti from '../../pages/impianti';
 import Login from '../../pages/login';
 import Macchinari from '../../pages/macchinari';
+import Aboutus from '../../pages/aboutus';
 
 
 function NavBar() {
@@ -17,6 +18,7 @@ function NavBar() {
           <li><Link to="/dashboard">Dashboard</Link></li>
           <li><Link to="/macchinari">Macchinari</Link></li>
           <li><Link to="/impianti">Impianti</Link></li>
+          <li><Link to="/aboutus">About</Link> </li>
 
         </ul>
 
@@ -29,6 +31,7 @@ function NavBar() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/macchinari" element={<Macchinari />} />
         <Route path="/impianti" element={<Impianti />} />
+        <Route path="/aboutus" element={<Aboutus />} />
         
       </Routes>
     </div> 

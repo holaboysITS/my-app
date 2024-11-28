@@ -4,7 +4,7 @@ export interface Machinery {
     name: string
     type: string
     status: string
-    specification: Record<any, any>
+    specification: Record<string, string>
 }
 
 export interface MachineryIn {

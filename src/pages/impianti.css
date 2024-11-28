@@ -17,9 +17,9 @@
 
 html,
 body {
-    color: #99a0b0;
+    color: #99a0b0 !important;
     width: 100%;
-    background: #f5f5fa;
+    background: #f5f5fa !important;
     font-size: 16px;
     line-height: 120%;
     font-family: Open Sans, Helvetica, sans-serif;

@@ -10,7 +10,7 @@ const config = {
     machineryGetUrl:    "http://127.0.0.1:8000/machinery",
     plantGetUrl:        "http://127.0.0.1:8000/plants",
     plantPostUrl:       "http://127.0.0.1:8000/plants",
-    machineryPostUrl:   "http://127.0.0.1:8000",
+    machineryPostUrl:   "http://127.0.0.1:8000/machineries",
     plantDeleteUrl:     "http://127.0.0.1:8000/plants",
     machineryDeleteUrl: "http://127.0.0.1:8000/machinery"
   };
@@ -132,8 +132,8 @@ export async function newMachinery(plant_id: string, name: string, type: string,
 };
 
     try {
-        console.log(`${config.machineryPostUrl}/machineries`);
-        const r = await fetch(`${config.machineryPostUrl}/machineries`, request);
+        console.log(`${config.machineryPostUrl}`);
+        const r = await fetch(`${config.machineryPostUrl}`, request);
         if (!r.ok) {
             throw new Error('response not ok');
         }
@@ -146,7 +146,7 @@ export async function newMachinery(plant_id: string, name: string, type: string,
 }
 
 export async function newPlant(name: string, location: string, description: string) {
-    let machineries = ['']
+    let machineries: string[] = []
     const request = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

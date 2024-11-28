@@ -3,16 +3,84 @@ import { Machinery } from '../classes/machinery';
 import { Plant } from '../classes/plant';
 
 const config = {
-    loginUrl: "http://127.0.0.1:8000/user",
-    machineryGetUrl: "http://127.0.0.1:8000/",
-    plantGetUrl: "http://127.0.0.1:8000/",
-    plantPostUrl: "http://127.0.0.1:8000/",
-    machineryPostUrl: "http://127.0.0.1:8000/"
+    loginUrl: "http://127.0.0.1:8000/login",
+    machineriesGetUrl: "http://127.0.0.1:8000/machinery",
+    plantsGetUrl: "http://127.0.0.1:8000/plants",
+    machineryGetUrl: "http://127.0.0.1:8000/machinery",
+    plantGetUrl: "http://127.0.0.1:8000/plants",
+    plantPostUrl: "http://127.0.0.1:8000/plants",
+    machineryPostUrl: "http://127.0.0.1:8000/plants",
+    plantDeleteUrl: "http://127.0.0.1:8000/plants",
+    machineryDeleteUrl: "http://127.0.0.1:8000/machinery"
   };
+
+  export async function deleteMachineryItem(id: string) {
+    const request = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+};
+
+    try {
+        const r = await fetch(`${config.machineryDeleteUrl}/${id}`, request);
+        if (!r.ok) {
+            throw new Error('response not ok');
+        }
+    } catch (error) {
+            console.error('errore:', error);
+            throw error;
+    }
+    return 200;
+  }
+
+  export async function deletePlantItem(id: string) {
+    const request = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+};
+
+    try {
+        const r = await fetch(`${config.plantDeleteUrl}/${id}`, request);
+        if (!r.ok) {
+            throw new Error('response not ok');
+        }
+    } catch (error) {
+            console.error('errore:', error);
+            throw error;
+    }
+    return 200;
+  }
+
+  export async function getMachineryItem(id: string): Promise<Machinery> {
+
+    try {
+        const r = await fetch(`${config.machineryGetUrl}/${id}`);
+        if (!r.ok) {
+            throw new Error('response not ok');
+        }
+        return await r.json(); 
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
+
+export async function getPlantItem(id: string): Promise<Plant> {
+
+    try {
+        const r = await fetch(`${config.plantGetUrl}/${id}`);
+        if (!r.ok) {
+            throw new Error('response not ok');
+        }
+        return await r.json(); 
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
 
   export async function getMachineryItems(): Promise<Machinery[]> {
     try {
-        const response = await fetch(config.machineryGetUrl);
+        const response = await fetch(config.machineriesGetUrl);
         if (!response.ok) {
             throw new Error('response not ok');
         }
@@ -26,7 +94,7 @@ const config = {
 
 export async function getPlantItems(): Promise<Plant[]> {
     try {
-        const response = await fetch(config.plantGetUrl);
+        const response = await fetch(config.plantsGetUrl);
         if (!response.ok) {
             throw new Error('response not ok');
         }
@@ -38,16 +106,16 @@ export async function getPlantItems(): Promise<Plant[]> {
     }
 }
 
-export async function newMachinery(plant_id: number, name: string, type: string, specifications: Record<string, string>) {
+export async function newMachinery(plant_id: number, name: string, type: string, status: string, specifications: Record<string, string>) {
 
     const request = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ plant_id, name, type, specifications })
+            body: JSON.stringify({ name, type, status, specifications })
 };
 
     try {
-        const r = await fetch(config.machineryPostUrl, request);
+        const r = await fetch(`${config.machineryGetUrl}/${plant_id}/machinery`, request);
         if (!r.ok) {
             throw new Error('response not ok');
         }
@@ -59,12 +127,12 @@ export async function newMachinery(plant_id: number, name: string, type: string,
 
 }
 
-export async function newPlant(name: string, location: string, description: string, machineries: string[]) {
+export async function newPlant(name: string, location: string, description: string) {
 
     const request = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, location, description, machineries })
+            body: JSON.stringify({ name, location, description})
 };
 
     try {
@@ -79,8 +147,6 @@ export async function newPlant(name: string, location: string, description: stri
     }
 
 }
-
-
 
 export function login(username: string, password: string): Promise<any> {
 
@@ -117,14 +183,7 @@ function responseHandler(r: Response) {
     return r.json().then(t => {
         console.log(t)
        if (r.ok) { 
-            try {
-                // const result = JSON.parse(t);
-                // return result.token? result.token : null;
-                return Promise.resolve(t)
-            } catch (e) {
-                console.error('Error:', e);
-                return Promise.reject('Error with response format')
-            }
+            return t;
         } else {
             return Promise.reject(r.statusText);
         };

@@ -15,6 +15,14 @@ const config = {
     machineryDeleteUrl: "http://127.0.0.1:8000/machinery"
   };
 
+  async function handleGenericResponses(r: Response): Promise<string> {
+    if (!r.ok) {
+        let message = await r.text()
+        throw new Error(`Response not ok sadge ${r.status}: ${message}`);
+    }
+    return r.text();
+  }
+
   export async function deleteMachineryItem(id: string) {
     const request = {
         method: 'DELETE',
@@ -23,14 +31,13 @@ const config = {
 
     try {
         const r = await fetch(`${config.machineryDeleteUrl}/${id}`, request);
-        if (!r.ok) {
-            throw new Error('response not ok');
-        }
+        handleGenericResponses(r);
+        return r.status;
     } catch (error) {
-            console.error('errore:', error);
-            throw error;
+        console.error('errore:', error);
+        throw error;
     }
-    return 200;
+    
   }
 
   export async function deletePlantItem(id: string) {
@@ -41,9 +48,7 @@ const config = {
 
     try {
         const r = await fetch(`${config.plantDeleteUrl}/${id}`, request);
-        if (!r.ok) {
-            throw new Error('response not ok');
-        }
+        handleGenericResponses(r);
     } catch (error) {
             console.error('errore:', error);
             throw error;
@@ -55,9 +60,7 @@ const config = {
 
     try {
         const r = await fetch(`${config.machineryGetUrl}/${id}`);
-        if (!r.ok) {
-            throw new Error('response not ok');
-        }
+        handleGenericResponses(r);
         const result = await r.json(); 
         localStorage.setItem('plantByIdResult', JSON.stringify(result));
         return result
@@ -71,9 +74,7 @@ export async function getPlantItem(id: string): Promise<Plant> {
 
     try {
         const r = await fetch(`${config.plantGetUrl}/${id}`);
-        if (!r.ok) {
-            throw new Error('response not ok');
-        }
+        handleGenericResponses(r);
         const result = await r.json(); 
         localStorage.setItem('plantByIdResult', JSON.stringify(result));
         return result
@@ -85,11 +86,9 @@ export async function getPlantItem(id: string): Promise<Plant> {
 
   export async function getMachineryItems(): Promise<Machinery[]> {
     try {
-        const response = await fetch(config.machineriesGetUrl);
-        if (!response.ok) {
-            throw new Error('response not ok');
-        }
-        const machineryItems: Machinery[] = await response.json();
+        const r = await fetch(config.machineriesGetUrl);
+        handleGenericResponses(r);
+        const machineryItems: Machinery[] = await r.json();
         let c = 0;
         localStorage.clear();
         machineryItems.forEach((machinery) => {
@@ -105,11 +104,9 @@ export async function getPlantItem(id: string): Promise<Plant> {
 
 export async function getPlantItems(): Promise<Plant[]> {
     try {
-        const response = await fetch(config.plantsGetUrl);
-        if (!response.ok) {
-            throw new Error('response not ok');
-        }
-        const newPlant: Plant[] = await response.json();
+        const r = await fetch(config.plantsGetUrl);
+        handleGenericResponses(r);
+        const newPlant: Plant[] = await r.json();
         let c = 0;
         localStorage.clear();
         newPlant.forEach((plant) => {
@@ -123,7 +120,13 @@ export async function getPlantItems(): Promise<Plant[]> {
     }
 }
 
-export async function newMachinery(plant_id: string, name: string, type: string, status: string, specifications: Record<string, string>) {
+export async function newMachinery(
+    plant_id: string,
+    name: string,
+    type: string,
+    status: string,
+    specifications: Record<string, string>
+    ): Promise<Machinery> {
 
     const request = {
             method: 'POST',
@@ -134,9 +137,7 @@ export async function newMachinery(plant_id: string, name: string, type: string,
     try {
         console.log(`${config.machineryPostUrl}`);
         const r = await fetch(`${config.machineryPostUrl}`, request);
-        if (!r.ok) {
-            throw new Error('response not ok');
-        }
+        handleGenericResponses(r);
         const result = await r.json();
         return result
     } catch (e) {
@@ -145,7 +146,7 @@ export async function newMachinery(plant_id: string, name: string, type: string,
 
 }
 
-export async function newPlant(name: string, location: string, description: string) {
+export async function newPlant(name: string, location: string, description: string): Promise<Plant> {
     let machineries: string[] = []
     const request = {
             method: 'POST',
@@ -155,9 +156,7 @@ export async function newPlant(name: string, location: string, description: stri
     console.log(request);
     try {
         const r = await fetch(config.plantPostUrl, request);
-        if (!r.ok) {
-            throw new Error('response not ok');
-        }
+        handleGenericResponses(r);
         const result = await r.json();
         return result
     } catch (e) {
@@ -168,7 +167,7 @@ export async function newPlant(name: string, location: string, description: stri
 
 export function login(username: string, password: string): Promise<any> {
 
-        console.log("login called")
+    console.log("login called")
 
     const request = {
         method: 'POST',

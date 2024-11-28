@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import './table.css';
+import { Plant } from '../../utility/classes/plant';
+import { getPlantItems } from '../../utility/helpers/services';
+import { useEffect } from 'react';
 
 function Table() {
     const [stile, setStyle] = useState("hidden")
@@ -9,28 +12,51 @@ function Table() {
         if (stile !== "hidden") setStyle("hidden")
             else setStyle("shown")
     }
+
+
+    const [plants, setPlantsState] = useState<Plant[]>([]);
+
+    function setPlants(response: Plant[]) {
+        setPlantsState(response);
+    }
+    
+    useEffect(() => {
+        const fetchPlants = async () => {
+            try {
+                const response = await getPlantItems();
+                setPlants(response);
+            } catch (error) {
+                console.error("Error fetching plants:", error);
+            }
+        };
+    
+        fetchPlants();
+    }, []);
+
+
     return (
-        <table onClick={showTable}>
-            <tr >
-                <th>IMPIANTO n.</th>
-            </tr>
-            <tr className={stile}>
-                <td>
-                    
-                        <div className="box-content">
-                            <span className='exploded_dash'></span>
-                            <div className='api_info'>
-                            <span>impianto</span>
-                            <span>macchinario</span>
-                            <span>data</span>
-                            <span>ora</span>
-                            <span>check</span>
-                            </div>
-                        </div>
-                    
-                </td>
-            </tr>
-        </table>
+
+<table className="card">
+{plants.map((plant) => (
+    <div>
+<p className="Heading" key={plant.id}>{plant.name}</p>
+  <p className="Description">{plant.description}</p>
+  {Object.entries(plant.machineries).map(([key, value]) => (
+  <p className="Mach" key={key}>{key}, {value}</p>))}
+  <div className="buttonContainer">
+    <button className="mod">Modifica</button>
+  <button className="del">Elimina</button>
+  </div>
+  </div> ))}
+
+</table>
+
+
+        
+
+
+
+
     )
 }
 

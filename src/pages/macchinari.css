@@ -187,57 +187,6 @@ div.content_dashboard {
 	justify-content: space-between !important;
 }
 
-	.info-boxes {
-		padding: 3em 0 2em;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-		grid-gap: 2em;
-		
-		.info-box {
-			background: #fff;
-			height: 200px;
-			display: flex;
-			align-items: center;
-			justify-content: flex-start;
-			padding: 0 3em;
-			border: 1px solid #f5f5fa;
-			border-radius: 5px;
-			
-			.box-icon {
-				svg {
-					display: block;
-					width: 48px;
-					height: 48px;
-					
-					path,
-					circle {
-						fill: #99a0b0;
-					}
-				}
-			}
-			
-			.box-content {			
-				padding-left: 1.25em;
-				white-space: nowrap;
-				
-				.big {
-					display: block;
-					font-size: 2em;
-					line-height: 150%;
-					color: #1b253d;
-				}
-			}
-			
-			&.active {
-				svg {
-					circle,
-					path {
-						fill: #4b84fe;
-					}
-				}
-			}
-		}
-	}
 
 	
 }

@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar/navbar';
 import Table from '../components/Table/table';
 import './impianti.css';
 import { getPlantItem, getPlantItems, newPlant, useHardLogout } from '../utility/helpers/services';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Plant } from '../utility/classes/plant'; // Ensure you have a Plant type defined in your types file
 
 
@@ -62,6 +62,8 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 	}
 
 
+
+
 const [id, setId] = useState("");
 
 const handlePlantGet = async (form: React.FormEvent) => {
@@ -75,6 +77,12 @@ const handlePlantGet = async (form: React.FormEvent) => {
 		throw e;
 	}
 }
+
+
+
+
+
+
 
   return (
         <div className="dashboard">
@@ -131,70 +139,11 @@ const handlePlantGet = async (form: React.FormEvent) => {
 
 		<div className="content_dashboard">
 			<section className="info-boxes">
-				<div className="info-box active">
-					<div className="box-icon">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-						<path d="M21 20V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1zm-2-1H5V5h14v14z"/><path d="M10.381 12.309l3.172 1.586a1 1 0 0 0 1.305-.38l3-5-1.715-1.029-2.523 4.206-3.172-1.586a1.002 1.002 0 0 0-1.305.38l-3 5 1.715 1.029 2.523-4.206z"/></svg>
-					</div>
-					
-					<div className="box-content">
-						<Table/>
-						<span className="big"></span>
-					</div>
-				</div>
-				
-				<div className="info-box">
-					<div className="box-icon">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 10H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1zm-1 10H5v-8h14v8zM5 6h14v2H5zM7 2h10v2H7z"/></svg>
-					</div>
-					
-					<div className="box-content">
-						<span className="big">132</span>
-				    bho 1
-					</div>
-				</div>
-				
-				<div className="info-box">
-					<div className="box-icon">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 10H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1zm-1 10H5v-8h14v8zM5 6h14v2H5zM7 2h10v2H7z"/></svg>
-					</div>
-					
-					<div className="box-content">
-						<span className="big">18</span>
-						bho 2
-					</div>
-				</div>
-				
-				<div className="info-box">
-					<div className="box-icon">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 10H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1zm-1 10H5v-8h14v8zM5 6h14v2H5zM7 2h10v2H7z"/></svg>
-					</div>
-					
-					<div className="box-content">
-						<span className="big">24</span>
-						bho 3
-					</div>
-
-          
-				</div>
-
-        <div className="info-box">
-					<div className="box-icon">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 10H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1zm-1 10H5v-8h14v8zM5 6h14v2H5zM7 2h10v2H7z"/></svg>
-					</div>
-					
-					<div className="box-content">
-						<span className="big">24</span>
-						bho 3
-					</div>
-
-          
-				</div>
+				<Table />
 			</section>
-		
-			
 		</div>
 	</main>
+	
 </div>
 
 
@@ -202,3 +151,5 @@ const handlePlantGet = async (form: React.FormEvent) => {
 };
 
 export default Page2;
+
+

@@ -1,35 +1,6 @@
-table{ 
-    border: 0px solid;
-    color: rgb(73, 73, 73);
-    border: 0px solid #ddd;
-    table-layout: fixed;
-    width: 100%;
-    margin-left: -20px;
-    
-  }
-  
-  th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 0px solid #ddd;
-  }
 
-  .exploded_dash {
-    width: 100%;
-    
-  }
 
-  .api_info {
-    display: flex;
-    flex-direction: column;
-  }
-  
-th:hover {
-  background-color: coral;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-}
+
 
 .hidden{
     display: none;

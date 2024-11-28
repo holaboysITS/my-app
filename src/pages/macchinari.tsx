@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar/navbar';
 import Table from '../components/Table/table';
 import './dashboard.css';
 import { newMachinery, useHardLogout } from '../utility/helpers/services';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getMachineryItem, getMachineryItems } from '../utility/helpers/services';
 
 
@@ -19,6 +19,7 @@ const Page2: React.FC = () => {
 			  else setStyle("shown")
 	  }
 
+
 	  const [plant_id, setPlantId] = useState('');
 	  const [name, setName] = useState('');
 	  const [type, setType] = useState('');
@@ -27,13 +28,17 @@ const Page2: React.FC = () => {
 	  const [specKey, setSpecKey] = useState('');
 	  const [specValue, setSpecValue] = useState('');
 	  const [MachineryErrors, setLoginErrors] = useState('');
-	  
+
+	  const addSpec = () => {
+		setSpecifications(prevSpecs => ({ ...prevSpecs, [specKey]: specValue }));
+		console.log(specifications);
+	  }
 	  
 	  const handleMachineryPost = async (form: React.FormEvent) => {
 		  form.preventDefault();
 		  console.log("handle machinery post called")
 		 if (name && type && status && specifications && plant_id) {
-	  
+			console.log(specifications)
 		  try {
 			  const Machinery = await newMachinery(plant_id, name, type, status, specifications)
 			  console.log('log name, location, description')
@@ -132,11 +137,16 @@ const Page2: React.FC = () => {
 					<input onChange={handleInputChange} name="status" type="Status" className="input" placeholder="Status Enum" />
 					<input onChange={handleInputChange} name="plant_id" type="Id" className="input" placeholder="Id int" />
 					<span style={{display:"flex", flexDirection:"row"}}>
-					<input onChange={(spec) => setSpecKey(spec.target.value)} name="specKey" type="Id" className="input" placeholder="Spec Key" />
-					<input onChange={(spec) => setSpecValue(spec.target.value)} name="specValue" type="Id" className="input" placeholder="value" />
+				
 					</span>
 				</div>
 				<button onClick={handleMachineryPost}>Inserisci</button>
+			</form>
+			<form className='form'>
+			<input onChange={(spec) => setSpecKey(spec.target.value)} name="specKey" type="Id" className="input" placeholder="Spec Key" />
+					<input onChange={(spec) => setSpecValue(spec.target.value)} name="specValue" type="Id" className="input" placeholder="value" />
+					<svg onClick={addSpec} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.094 2.085l-1.013-.082a1.082 1.082 0 0 0-.161 0l-1.063.087C6.948 2.652 4 6.053 4 10v3.838l-.948 2.846A1 1 0 0 0 4 18h4.5c0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5H20a1 1 0 0 0 .889-1.495L20 13.838V10c0-3.94-2.942-7.34-6.906-7.915zM12 19.5c-.841 0-1.5-.659-1.5-1.5h3c0 .841-.659 1.5-1.5 1.5zM5.388 16l.561-1.684A1.03 1.03 0 0 0 6 14v-4c0-2.959 2.211-5.509 5.08-5.923l.921-.074.868.068C15.794 4.497 18 7.046 18 10v4c0 .107.018.214.052.316l.56 1.684H5.388z"/></svg>
+
 			</form>
 		</div>
 		</div>

@@ -35,28 +35,31 @@ function Table() {
 
 
     return (
-
-<table className="card">
-{plants.map((plant) => (
-    <div>
-<p className="Heading" key={plant.id}>{plant.name}</p>
-  <p className="Description">{plant.description}</p>
-  {Object.entries(plant.machineries).map(([key, value]) => (
-  <p className="Mach" key={key}>{key}, {value}</p>))}
-  <div className="buttonContainer">
-    <button className="mod">Modifica</button>
-  <button className="del">Elimina</button>
-  </div>
-  </div> ))}
-
-</table>
-
-
-        
-
-
-
-
+        <div className="table">
+            <button onClick={showTable}>Show Machines</button>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Description</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {plants.map((plant) => (
+                        <tr key={plant.id}>
+                            <td>{plant.id}</td>
+                            <td>{plant.name}</td>
+                            <td>{plant.location}</td>
+                            <td>{plant.description}</td>
+                            <td className={stile}>{plant.machineries}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     )
 }
 

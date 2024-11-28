@@ -12,12 +12,19 @@ function Aboutus() {
 
 
 
-        <div className="dashboard">
+    <div className="dashboardab">
+
+		<div className="wavetwo"></div>
+    	<div className="wavetwo"></div>
+    	<div className="wavetwo"></div>
+
+
           <div className='NAVBARab'>
           <NavBar/>
           </div>
+
          
-	<aside className="search-wrapab">
+		<aside className="search-wrapab">
 		<div className="search">
 			<label htmlFor="search">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"/></svg>
@@ -35,7 +42,7 @@ function Aboutus() {
 		</div>
 	</aside>
 
-	<main className="content-wrap">
+	<main className="content-wrapAB">
 		<header className="content-head">
 			<h1>ABOUT US</h1>
 		</header>
@@ -94,7 +101,7 @@ function Aboutus() {
 				
 				<div className="person-box">
 					<div className="box-avatar">
-						<img src="" alt="Head of Digital"/>
+						<img src="" alt="Gatto Gif"/>
 					</div>
 					
 					<div className="box-bio">
@@ -119,7 +126,7 @@ function Aboutus() {
 				
 				<div className="person-box">
 					<div className="box-avatar">
-						<img src={miaocute} alt="Devorah Moretti, Head of Trading"/>
+						<img src={miaocute} alt="Devorah Moretti, Gatto Gif"/>
 					</div>
 					
 					<div className="box-bio">
@@ -144,7 +151,7 @@ function Aboutus() {
 				
 				<div className="person-box">
 					<div className="box-avatar">
-						<img src="" alt="Francesco Berardino, Head of Human Resources"/>
+						<img src="" alt="Francesco Berardino, Gatto Gif"/>
 					</div>
 					
 					<div className="box-bio">
@@ -167,7 +174,7 @@ function Aboutus() {
 				
 				<div className="person-box">
 					<div className="box-avatar">
-						<img src="" alt="Giuseppe Giuffreda, Head of International"/>
+						<img src="" alt="Giuseppe Giuffreda, HGatto Gif"/>
 					</div>
 					
 					<div className="box-bio">
@@ -191,6 +198,12 @@ function Aboutus() {
 			</section>
 		</div>
 	</main>
+	<footer>
+		<div className="footer-content">
+designed with ♥, coded with ☺ <br />
+© 2024 - All rights reserved 
+		</div>
+	</footer>
 </div>
 
 

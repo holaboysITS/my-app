@@ -16,7 +16,7 @@ const Page1: React.FC = () => {
       logout();
   }, [])
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       
       const {name, value} = e.target;
 

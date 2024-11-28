@@ -7,6 +7,14 @@ export interface Machinery {
     specification: Record<string, string>
 }
 
+export interface MachineryOut {
+    plant_id: string
+    name: string
+    type: string
+    status: string
+    specification: Record<string, string>
+}
+
 export interface MachineryIn {
     plant_id: string
     name: string

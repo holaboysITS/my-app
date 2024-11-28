@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './table.css';
-import { Plant } from '../../utility/classes/plant';
+import { Plant, PlantOut } from '../../utility/classes/plant';
 import { getPlantItems } from '../../utility/helpers/services';
 import { useEffect } from 'react';
 
@@ -14,10 +14,11 @@ function Table() {
     }
 
 
-    const [plants, setPlantsState] = useState<Plant[]>([]);
+    const [plants, setPlantsState] = useState<PlantOut[]>([]);
 
-    function setPlants(response: Plant[]) {
+    function setPlants(response: PlantOut[]) {
         setPlantsState(response);
+        console.log(response)
     }
     
     useEffect(() => {
@@ -54,7 +55,13 @@ function Table() {
                             <td>{plant.name}</td>
                             <td>{plant.location}</td>
                             <td>{plant.description}</td>
-                            <td className={stile}>{plant.machineries}</td>
+                            <td className={stile}>{plant.machineries.map((machine) => {
+                                return <tr><td>{machine.plant_id}</td>
+                                <td>{machine.name}</td>
+                                <td>{machine.status}</td>
+                                <td>{machine.type}</td>
+                                </tr>
+                            })}</td>
                         </tr>
                     ))}
                 </tbody>

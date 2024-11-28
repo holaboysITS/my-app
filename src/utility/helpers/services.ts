@@ -1,6 +1,6 @@
 import { UserResponse } from '../classes/user';
 import { Machinery } from '../classes/machinery';
-import { Plant } from '../classes/plant';
+import { Plant, PlantOut } from '../classes/plant';
 import { useNavigate } from 'react-router-dom';
 
 const config = {
@@ -110,14 +110,14 @@ export async function getPlantItem(id: string): Promise<Plant> {
     }
 }
 
-export async function getPlantItems(): Promise<Plant[]> {
+export async function getPlantItems(): Promise<PlantOut[]> {
     try {
         const r = await fetch(config.plantsGetUrl);
         if (!r.ok) {
         let message = await r.text()
         throw new Error(`Response not ok sadge ${r.status}: ${message}`);
     }
-        const newPlant: Plant[] = await r.json();
+        const newPlant: PlantOut[] = await r.json();
         let c = 0;
         localStorage.clear();
         newPlant.forEach((plant) => {

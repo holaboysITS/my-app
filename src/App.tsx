@@ -6,6 +6,7 @@ import Dashboard from './pages/dashboard';
 import Impianti from './pages/impianti';
 import Login from './pages/login';
 import Macchinari from './pages/macchinari';
+import Aboutus from './pages/aboutus';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function AppContent() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/macchinari" element={<Macchinari />} />
           <Route path="/impianti" element={<Impianti />} />
+          <Route path="/aboutus" element={<Aboutus />} />
         </Routes>
        
       </main>

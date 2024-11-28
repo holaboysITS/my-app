@@ -1,0 +1,193 @@
+.search-wrapab  {
+    display: none;
+}
+.NAVBARab {
+    display: none;
+}
+
+
+.content-wrap {
+	grid-area: content;
+	padding: 3em;
+	overflow: auto;
+	
+	.content-head	{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		h1 {
+            margin-top: -10px;
+			font-size: 1.375em;
+			line-height: 100%;
+			color: #1b253d;
+			font-weight: 500;
+			margin-left: 0;
+            text-align: center;
+			padding: 0;
+		}
+		
+		.action {
+			button {
+				border: 0;
+				background: #4b84fe;
+				color: #fff;
+				width: auto;
+				height: 3.5em;
+				padding: 0 2.25em;
+				border-radius: 3.5em;
+				font-size: 1em;
+				text-transform: uppercase;
+				font-weight: 600;
+				transition: background-color .15s ease;
+				
+				&:hover {
+					background-color: darken(#4b84fe, 10%);
+					
+					&:active {
+						background-color: darken(#4b84fe, 20%);
+						transition: none;
+					}
+				}
+			}
+		}
+	}
+
+    .content {
+        display: flex;
+        justify-content: center;
+        
+    }
+
+	.person-boxes {
+		display: flex;
+        flex-direction: row;
+        margin: 10px;
+        
+        
+        
+		
+		.person-box {
+			background: #fff;
+			height: 400px;
+			text-align: center;
+			padding: 3em;
+			border: 1px solid #f5f5fa;
+			border-radius: 5px;
+            margin: 10px;
+			
+			&:nth-child(2n) {
+				.box-avatar {
+					.no-name {
+						background: #4b84fe;
+					}
+				}
+			}
+			
+			&:nth-child(5n) {
+				.box-avatar {
+					.no-name {
+						background: #ffbb09;
+					}
+				}
+			}
+			
+			.box-avatar {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				margin: 0px auto;
+				overflow: hidden;
+				
+				img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    
+				}
+				
+				.no-name {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+					color: #fff;
+					font-size: 1.5em;
+					font-weight: 600;
+					text-transform: uppercase;
+					width: 100%;
+					height: 100%;
+					background: #fa5b67;
+				}
+			}
+			
+			.box-bio {
+				white-space: no-wrap;
+                min-height: 120px;
+                justify-content: space-between;
+				
+            
+				.bio-name {
+					margin: 2em 0 .75em;
+					color: #1b253d;
+					font-size: 1em;
+					font-weight: 700;
+					line-height: 100%;
+                    min-width: 140px;
+				}
+				
+				.bio-position {
+					margin: 0;
+					font-size: .875em;
+					line-height: 100%;
+				}
+			}
+			
+			.box-actions {
+				margin-top: 1.25em;
+				padding-top: 1.25em;
+                min-width: 130px;
+				width: 100%;
+				border-top: 1px solid #f5f5fa;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+                position: relative;
+                bottom: 0px;
+
+                .gh {
+                    min-width: 110px;
+                }
+				
+				button {
+					border: 0;
+					background: none;
+					width: 32px;
+					height: 32px;
+					margin: 0;
+					padding: 0;
+
+					svg {
+						position: relative;
+						top: 2px;
+
+						path,
+						circle {
+							fill: lighten(#99a0b0, 10%);
+							transition: fill .15s ease;
+						}
+					}
+
+					&:hover {
+						svg {
+							path,
+							circle {
+								fill: lighten(#1b253d, 10%);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

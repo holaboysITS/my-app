@@ -35,13 +35,11 @@ const Page2: React.FC = () => {
 	<main className="content-wrap">
 		<header className="content-head">
 			<h1>Dashboard</h1>
-				
-			<div className="action">
-				<button>
-					Save search
-				</button>
-			</div>
 		</header>
+
+
+
+
 		
 		<div className="content_dashboard">
 			<section className="info-boxes">

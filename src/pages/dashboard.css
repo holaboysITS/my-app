@@ -17,21 +17,48 @@ body {
     font-size: 16px;
     line-height: 120%;
     font-family: Open Sans, Helvetica, sans-serif;
-    overflow: auto !important;
+    overflow-y: auto !important;
+	overflow-x: hidden !important;
 
     
 }
 
+#headmac {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.buttbutt {
+	margin-top: -5rem;
+	margin-bottom: 5rem;
+}
 .dashboxes {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	grid-gap: 20px;
-	padding: 20px;
-
-	background: #cacaca;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 40px;
+	width: 100%;
+	gap: 20px;
+	background: #ffffff00;
 	overflow: hidden !important;
 	overflow-x: hidden !important;
+}
+.dashakards {
+	border-radius: 4px;
+	min-width: 300px;
+	min-height: 300px;
+	display: flex;
+	background-color: #ffbe5c41;
+justify-content: center;
+flex-direction: row;
+flex-wrap: wrap;
+width: 100%;
+align-items: center;
+padding: 30px;
+margin-top: 20px;
+text-align: center;
 }
 
 .altosinistra {
@@ -47,6 +74,7 @@ body {
     grid-template-rows: 80px auto;
   grid-template-areas: 'search search'
                          'content content';
+
 }
 
 .search-wrap {
@@ -151,7 +179,8 @@ body {
 .content-wrap {
 	grid-area:  content;
 	padding: 0em;
-	overflow: auto;
+	overflow-x: hidden !important;
+	overflow-y: auto !important;
 	
 	.content-head	{
 		display: flex;
@@ -159,6 +188,7 @@ body {
 		justify-content: center;
 		
 		h1 {
+
 			font-size: 1.375em;
 			line-height: 100%;
 			color: #1b253d;
@@ -284,7 +314,7 @@ body {
     }
 
     .content-head {
-		margin-top: 4rem;
+		margin-top: 6rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -309,4 +339,9 @@ body {
 		margin-left: 0 !important;
 		margin-top: 30px !important;
     }
+	.dashboxes {
+		margin: 0;
+		width: 100%;
+	}
+	
 }

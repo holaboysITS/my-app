@@ -63,7 +63,7 @@ function Aboutus() {
 					</div>
 					
 					<div className="box-bio">
-						<h2 className="bio-name">Stefano Birillo</h2>
+						<h2 className="bio-name">Stefano Scauzillo</h2>
 						<p className="bio-position">Project Manager</p>
                         <p className="bio-position">.TSX GOD</p>
                         <p className="bio-position">Full-Stack</p>
@@ -71,7 +71,7 @@ function Aboutus() {
 					</div>
 					
 					<div className="box-actions">
-                        <p className='gh'>github stefano</p>
+                        <p className='gh'>@holaboysITS</p>
 						<button>
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 18H6V6h7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8h-2v7z"/><path d="M17.465 5.121l-6.172 6.172 1.414 1.414 6.172-6.172 2.12 2.121L21 3h-5.657z"/></svg>
 						</button>
@@ -116,7 +116,7 @@ function Aboutus() {
 					</div>
 					
 					<div className="box-actions">
-                    <p className='gh'>github Matteo</p>
+                    <p className='gh'>@Matte-Hub1</p>
 
 						<button>
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 18H6V6h7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8h-2v7z"/><path d="M17.465 5.121l-6.172 6.172 1.414 1.414 6.172-6.172 2.12 2.121L21 3h-5.657z"/></svg>
@@ -167,7 +167,7 @@ function Aboutus() {
 					</div>
 					
 					<div className="box-actions">
-                    <p className='gh'>github Bales</p>
+                    <p className='gh'>@Fraberi03</p>
 
 						<button>
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 18H6V6h7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8h-2v7z"/><path d="M17.465 5.121l-6.172 6.172 1.414 1.414 6.172-6.172 2.12 2.121L21 3h-5.657z"/></svg>
@@ -182,7 +182,7 @@ function Aboutus() {
 					</div>
 					
 					<div className="box-bio">
-						<h2 className="bio-name">Giuseppe Giuffreda</h2>
+						<h2 className="bio-name">Giuseppe Gioffreda</h2>
                         <p className="bio-position">Python Team</p>
 						<p className="bio-position">PM Assistant</p>
                         <p className="bio-position">Public Relations</p>
@@ -190,7 +190,7 @@ function Aboutus() {
 					</div>
 					
 					<div className="box-actions">
-                    <p className='gh'>github Giuseppe</p>
+                    <p className='gh'>@Gioffryx</p>
 
 						<button>
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 18H6V6h7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8h-2v7z"/><path d="M17.465 5.121l-6.172 6.172 1.414 1.414 6.172-6.172 2.12 2.121L21 3h-5.657z"/></svg>

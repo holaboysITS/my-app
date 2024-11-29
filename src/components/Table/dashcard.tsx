@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import './table.css';
 import { Plant, PlantOut } from '../../utility/classes/plant';
 import { getPlantItems } from '../../utility/helpers/services';
 import { useEffect } from 'react';
@@ -14,9 +14,9 @@ function Dashcard() {
     }
 
 
-    const [plants, setPlantsState] = useState<PlantOut[]>([]);
+    const [plants, setPlantsState] = useState<Plant[]>([]);
 
-    function setPlants(response: PlantOut[]) {
+    function setPlants(response: Plant[]) {
         setPlantsState(response);
         console.log(response)
     }
@@ -38,21 +38,17 @@ function Dashcard() {
     return (
 <>
         {plants.map((plant) => (
-        <div>
-			<div  key={plant.id}>
+        <div className='dashakards' style={{color:"black"}}>
+			<div  key={plant._id}>
 				<h2 >{plant.name}</h2>
-				<p  >{plant.location}</p>
-                <p  >{plant.description}</p>
+				<p  >location: {plant.location}</p>
+                <p  style={{borderBottom: "1px solid black"}}>description: <br />{plant.description}</p>
 			</div>
         {plant.machineries.map((machine) => (
 			
-            <div style={{color: 'red'
-           }} key={machine.plant_id}>
-                <p >{machine.plant_id}</p>
-                <p  >{machine.name}</p>
-                <p  >{machine.status}</p>
-                <p  >{machine.type}</p>
-                        
+            <div style={{color: 'grey'
+           }} key={machine}>
+                <p >id: {machine}</p>
 
 			</div>))}
 		</div> ))}

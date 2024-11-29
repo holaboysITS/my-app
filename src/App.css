@@ -2,6 +2,7 @@
   user-select: none;
 }
 
+
 h1 {
   color: white;
   font-size: 11rem !important;
@@ -153,6 +154,7 @@ h1 {
 @media screen and (max-width: 600px) {
   html{
 height: auto;
+overflow-x: hidden !important;
   }
 
 

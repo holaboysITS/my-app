@@ -32,7 +32,7 @@ const Page2: React.FC = () => {
 	
 
 	
-	<main className="content-wrap">
+	<main className="content-wrap" >
 		<header className="content-head">
 			<h1>Dashboard</h1>
 		</header>

@@ -12,7 +12,7 @@ const config = {
     plantPostUrl:       "http://127.0.0.1:8000/plants",
     machineryPostUrl:   "http://127.0.0.1:8000/machineries",
     plantDeleteUrl:     "http://127.0.0.1:8000/plants",
-    machineryDeleteUrl: "http://127.0.0.1:8000/machinery",
+    machineryDeleteUrl: "http://127.0.0.1:8000/deleteMachinariesById",
     machineryEditUrl: "http://127.0.0.1:8000/machinery"
   };
 
@@ -99,7 +99,7 @@ export async function getPlantItem(id: string): Promise<Plant> {
     }
         const machineryItems: Machinery[] = await r.json();
         let c = 0;
-        localStorage.clear();
+
         machineryItems.forEach((machinery) => {
             localStorage.setItem(c.toString(), JSON.stringify(machinery));
             c++
@@ -111,16 +111,16 @@ export async function getPlantItem(id: string): Promise<Plant> {
     }
 }
 
-export async function getPlantItems(): Promise<PlantOut[]> {
+export async function getPlantItems(): Promise<Plant[]> {
     try {
         const r = await fetch(config.plantsGetUrl);
         if (!r.ok) {
         let message = await r.text()
         throw new Error(`Response not ok ${r.status}: ${message}`);
     }
-        const newPlant: PlantOut[] = await r.json();
+        const newPlant: Plant[] = await r.json();
         let c = 0;
-        localStorage.clear();
+
         newPlant.forEach((plant) => {
             localStorage.setItem(c.toString(), JSON.stringify(plant));
             c++
@@ -237,15 +237,15 @@ function responseHandler(r: Response) {
     return hardLogout;
   };
 
-export async function machineryEdit(status: string, specification: Record<string, string>) {
+export async function machineryEdit(id: string, status: string, specification: Record<string, string>) {
     const request = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status, specification })
 };
 try {
-    console.log(`${config.machineryEditUrl}`);
-    const r = await fetch(`${config.machineryEditUrl}`, request);
+    console.log(`${config.machineryEditUrl}/${id}`);
+    const r = await fetch(`${config.machineryEditUrl}/${id}`, request);
     if (!r.ok) {
     let message = await r.text()
     throw new Error(`Response not ok ${r.status}: ${message}`);

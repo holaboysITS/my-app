@@ -1,7 +1,7 @@
 import { MachineryOut } from "./machinery"
 
 export interface Plant {
-    id: string
+    _id: string
     name: string
     location: string
     description: string

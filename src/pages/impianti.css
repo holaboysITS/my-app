@@ -23,7 +23,8 @@ body {
     font-size: 16px;
     line-height: 120%;
     font-family: Open Sans, Helvetica, sans-serif;
-    overflow: auto !important;
+    overflow-y: auto !important;
+	overflow-x: hidden !important;
 
     
 }
@@ -191,13 +192,30 @@ body {
 	}
 }
 
-
+.buttbutt{
+	background-color: #ffffff00;
+    color: rgb(250, 177, 82);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+	
+}
 
 
 /* Mobile styles */
 @media only screen and (max-width: 600px) {
 
 
+	.buttbutt{
+		background-color: #ffffff00;
+		color: rgb(255, 117, 53);
+		padding: 10px 10px;
+		border-radius: 5px;
+		cursor: pointer;
+		align-items: center;
+		justify-content: center;
+	}
+	
 	.user-actions {
 		display: flex	;
 		flex-direction: row;

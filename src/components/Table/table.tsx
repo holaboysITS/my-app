@@ -14,9 +14,9 @@ function Table() {
     }
 
 
-    const [plants, setPlantsState] = useState<PlantOut[]>([]);
+    const [plants, setPlantsState] = useState<Plant[]>([]);
 
-    function setPlants(response: PlantOut[]) {
+    function setPlants(response: Plant[]) {
         setPlantsState(response);
         console.log(response)
     }
@@ -39,10 +39,12 @@ function Table() {
         <>
 
             {plants.map((plant) => (
-                <div className="card" key={plant.id}>
+                <div className="card" key={plant._id}>
                     <div className="card__title"></div>
                     <div className="card__data">
                         <div className="card__right">
+                        <div className="item">id</div>
+
                             <div className="item">name</div>
                             <div className="item">location</div>
                             <div className="item">description</div>
@@ -50,17 +52,18 @@ function Table() {
                         </div>
                         
                         <div className="card__left">
+                        <div className="item">{plant._id}</div>
+
                             <div className="item">{plant.name}</div>
                             <div className="item">{plant.location}</div>
                             <div className="item">{plant.description}</div>
-                        {plant.machineries.map((machine) => (
-                            <div className="card__left" key={machine.plant_id}>
-                                <div className="item" style={{color:"black", fontStyle:"bold"}}>{machine.plant_id}</div>
-                                <div className="item">{machine.name}</div>
-                                <div className="item">{machine.status}</div>
-                                <div className="item">{machine.type}</div>
+                            {plant.machineries.map((machinery) => (
+                            <div className="item" >
+                                
+                                   {machinery}
+                               
                             </div>
-                        ))}
+                         ))}
                         </div>
                     </div>
                 </div>

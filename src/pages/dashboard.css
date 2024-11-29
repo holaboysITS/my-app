@@ -35,7 +35,7 @@ body {
     grid-template-columns: 300px auto;
     grid-template-rows: 80px auto;
   grid-template-areas: 'search search'
-                                                'content content';
+                         'content content';
 }
 
 .search-wrap {
@@ -241,10 +241,6 @@ body {
 
 
 
-div.content_dashboard {
-	
-	justify-content: space-between !important;
-}
 
 	
 	

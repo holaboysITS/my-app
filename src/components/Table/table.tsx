@@ -36,37 +36,36 @@ function Table() {
 
 
     return (
-        <div className="table">
-            <button onClick={showTable}>Show Machines</button>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Location</th>
-                        <th>Description</th>
+        <>
+
+            {plants.map((plant) => (
+                <div className="card" key={plant.id}>
+                    <div className="card__title"></div>
+                    <div className="card__data">
+                        <div className="card__right">
+                            <div className="item">name</div>
+                            <div className="item">location</div>
+                            <div className="item">description</div>
+                            <div className="item">machineries</div>
+                        </div>
                         
-                    </tr>
-                </thead>
-                <tbody>
-                    {plants.map((plant) => (
-                        <tr key={plant.id}>
-                            <td>{plant.id}</td>
-                            <td>{plant.name}</td>
-                            <td>{plant.location}</td>
-                            <td>{plant.description}</td>
-                            <td className={stile}>{plant.machineries.map((machine) => {
-                                return <tr><td>{machine.plant_id}</td>
-                                <td>{machine.name}</td>
-                                <td>{machine.status}</td>
-                                <td>{machine.type}</td>
-                                </tr>
-                            })}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+                        <div className="card__left">
+                            <div className="item">{plant.name}</div>
+                            <div className="item">{plant.location}</div>
+                            <div className="item">{plant.description}</div>
+                        {plant.machineries.map((machine) => (
+                            <div className="card__left" key={machine.plant_id}>
+                                <div className="item" style={{color:"black", fontStyle:"bold"}}>{machine.plant_id}</div>
+                                <div className="item">{machine.name}</div>
+                                <div className="item">{machine.status}</div>
+                                <div className="item">{machine.type}</div>
+                            </div>
+                        ))}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </>
     )
 }
 

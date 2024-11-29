@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '../components/NavBar/navbar';
-import Table from '../components/Table/table';
+import Dashcard from '../components/Table/dashcard';
 import './dashboard.css';
 import { useHardLogout } from '../utility/helpers/services';
 
@@ -43,7 +43,7 @@ const Page2: React.FC = () => {
 		
 		<div className="content_dashboard">
 			<section className="info-boxes">
-				
+				<Dashcard/>
 			</section>
 		
 			

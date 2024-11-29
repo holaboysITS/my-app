@@ -1,53 +1,81 @@
-/* FILE: table.css */
-
-.table {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-button {
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-table {
+section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+    align-items: center;
 }
 
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
+.card {
+    width: 90% !important;
+    height: auto !important; 
+    margin-left: 10px;
+    margin-right: 10px;
+    background: rgb(44, 44, 44);
+    font-family: "Courier New", Courier, monospace;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    overflow: hidden;
+    align-items: stretch !important;
+  }
+  
+  .card__title {
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(167, 159, 159);
+    font-size: 0.95rem;
+  }
+  
+  .card__data {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
 
-th {
-    background-color: #f2f2f2;
-}
+  }
+  
+  .card__right {
+    width: 60%;
+    border-right: 1px solid rgb(203, 203, 203);
+  }
 
-tr:hover {
-    background-color: #f5f5f5;
-}
+  .card__right .item:nth-child(4) {
+    
+  }
+  
+  .card__left {
+    width: 100%;
+    text-align: start;
+    
+  }
+  
+  .item {
+    padding: 3px 0;
+    background-color: white;
+  }
+  
+  .card__right .item {
+    padding-left: 0.8em;
+  }
+  
+  .card__left .item {
+    padding-right: 0.8em;
+  }
+  
+  .item:nth-child(even) {
+    background: rgb(234, 235, 234);
+  }
+  
+
+
 
 .hidden {
     display: none;
 }
 .hidden_mac {
-    background-color: pink;
+    background: rgb(194, 47, 72) !important;
 }
 
 .shown {

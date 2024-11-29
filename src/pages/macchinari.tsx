@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '../components/NavBar/navbar';
-import Table from '../components/Table/table';
+import MacTable from '../components/Table/mactable';
 import './dashboard.css';
 import { newMachinery, useHardLogout } from '../utility/helpers/services';
 import { useState, useEffect } from 'react';
@@ -156,7 +156,7 @@ const Page2: React.FC = () => {
 		
 		<div className="content_dashboard">
 			<section className="info-boxes">
-
+<MacTable />
 			</section>
 		
 			

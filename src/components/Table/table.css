@@ -1,0 +1,90 @@
+section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.card {
+    width: 90% !important;
+    height: auto !important; 
+    margin-left: 10px;
+    margin-right: 10px;
+    background: rgb(44, 44, 44);
+    font-family: "Courier New", Courier, monospace;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    overflow: hidden;
+    align-items: stretch !important;
+  }
+  
+  .card__title {
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(167, 159, 159);
+    font-size: 0.95rem;
+  }
+  
+  .card__data {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+
+  }
+  
+  .card__right {
+    width: 60%;
+    border-right: 1px solid rgb(203, 203, 203);
+  }
+
+
+  
+  .card__left {
+    width: 100%;
+    text-align: start;
+    
+  }
+  
+  .item {
+    padding: 3px 0;
+    background-color: white;
+  }
+  
+  .card__right .item {
+    padding-left: 0.8em;
+  }
+  
+  .card__left .item {
+    padding-right: 0.8em;
+  }
+  
+  .item:nth-child(even) {
+    background: rgb(234, 235, 234);
+  }
+  
+
+
+
+.hidden {
+    display: none;
+}
+.hidden_mac {
+    background: rgb(194, 47, 72) !important;
+}
+
+.shown {
+    display: hidden_mac;
+}
+@media screen and (max-width: 600px) {
+  table {
+    border: 0px solid;
+    border-collapse: collapse;
+    width: 130%;
+    margin-left: -20px;
+  }
+  
+}

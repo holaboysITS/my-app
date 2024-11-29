@@ -42,7 +42,7 @@ const Page2: React.FC = () => {
 
 		
 		<div className="content_dashboard">
-			<section className="info-boxes">
+			<section className="dashboxes">
 				<Dashcard/>
 			</section>
 		

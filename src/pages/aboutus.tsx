@@ -5,6 +5,7 @@ import maxwell from '../utility/maxwell.gif';
 import miaocute from '../utility/miaocute.gif';
 import kisscat from '../utility/catkiss.gif';
 import kickingcat from '../utility/kickingcat.gif';
+import beracat from '../utility/beracat.gif';
 
 function Aboutus() {
     return (
@@ -154,7 +155,7 @@ function Aboutus() {
 				
 				<div className="person-box">
 					<div className="box-avatar">
-						<img src="" alt="Francesco Berardino, Gatto Gif"/>
+						<img src={beracat} alt="Francesco Berardino, Gatto Gif"/>
 					</div>
 					
 					<div className="box-bio">

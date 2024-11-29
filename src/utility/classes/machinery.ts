@@ -1,5 +1,5 @@
 export interface Machinery {
-    id: string
+    _id: string
     plant_id: string
     name: string
     type: string

@@ -40,7 +40,7 @@ function MacTable() {
         <>
 
             {machinery.map((machine) => (
-                <div className="card" key={machine.id}>
+                <div className="card" key={machine._id}>
                     <div className="card__title"></div>
                     <div className="card__data">
                         <div className="card__right">

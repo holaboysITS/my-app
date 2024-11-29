@@ -12,7 +12,8 @@ const config = {
     plantPostUrl:       "http://127.0.0.1:8000/plants",
     machineryPostUrl:   "http://127.0.0.1:8000/machineries",
     plantDeleteUrl:     "http://127.0.0.1:8000/plants",
-    machineryDeleteUrl: "http://127.0.0.1:8000/machinery"
+    machineryDeleteUrl: "http://127.0.0.1:8000/machinery",
+    machineryEditUrl: "http://127.0.0.1:8000/machinery"
   };
 
 
@@ -26,7 +27,7 @@ const config = {
         const r = await fetch(`${config.machineryDeleteUrl}/${id}`, request);
         if (!r.ok) {
             let message = await r.text()
-            throw new Error(`Response not ok sadge ${r.status}: ${message}`);
+            throw new Error(`Response not ok  ${r.status}: ${message}`);
         }
         return r.status;
     } catch (error) {
@@ -46,7 +47,7 @@ const config = {
         const r = await fetch(`${config.plantDeleteUrl}/${id}`, request);
         if (!r.ok) {
         let message = await r.text()
-        throw new Error(`Response not ok sadge ${r.status}: ${message}`);
+        throw new Error(`Response not ok  ${r.status}: ${message}`);
     }
     } catch (error) {
             console.error('errore:', error);
@@ -61,7 +62,7 @@ const config = {
         const r = await fetch(`${config.machineryGetUrl}/${id}`);
         if (!r.ok) {
         let message = await r.text()
-        throw new Error(`Response not ok sadge ${r.status}: ${message}`);
+        throw new Error(`Response not ok ${r.status}: ${message}`);
     }
         const result = await r.json(); 
         localStorage.setItem('plantByIdResult', JSON.stringify(result));
@@ -78,7 +79,7 @@ export async function getPlantItem(id: string): Promise<Plant> {
         const r = await fetch(`${config.plantGetUrl}/${id}`);
         if (!r.ok) {
         let message = await r.text()
-        throw new Error(`Response not ok sadge ${r.status}: ${message}`);
+        throw new Error(`Response not ok ${r.status}: ${message}`);
     }
         const result = await r.json(); 
         localStorage.setItem('plantByIdResult', JSON.stringify(result));
@@ -94,7 +95,7 @@ export async function getPlantItem(id: string): Promise<Plant> {
         const r = await fetch(config.machineriesGetUrl);
         if (!r.ok) {
         let message = await r.text()
-        throw new Error(`Response not ok sadge ${r.status}: ${message}`);
+        throw new Error(`Response not ok ${r.status}: ${message}`);
     }
         const machineryItems: Machinery[] = await r.json();
         let c = 0;
@@ -115,7 +116,7 @@ export async function getPlantItems(): Promise<PlantOut[]> {
         const r = await fetch(config.plantsGetUrl);
         if (!r.ok) {
         let message = await r.text()
-        throw new Error(`Response not ok sadge ${r.status}: ${message}`);
+        throw new Error(`Response not ok ${r.status}: ${message}`);
     }
         const newPlant: PlantOut[] = await r.json();
         let c = 0;
@@ -172,7 +173,7 @@ export async function newPlant(name: string, location: string, description: stri
         const r = await fetch(config.plantPostUrl, request);
         if (!r.ok) {
         let message = await r.text()
-        throw new Error(`Response not ok sadge ${r.status}: ${message}`);
+        throw new Error(`Response not ok ${r.status}: ${message}`);
     }
         const result = await r.json();
         return result
@@ -235,4 +236,24 @@ function responseHandler(r: Response) {
   
     return hardLogout;
   };
+
+export async function machineryEdit(status: string, specification: Record<string, string>) {
+    const request = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status, specification })
+};
+try {
+    console.log(`${config.machineryEditUrl}`);
+    const r = await fetch(`${config.machineryEditUrl}`, request);
+    if (!r.ok) {
+    let message = await r.text()
+    throw new Error(`Response not ok ${r.status}: ${message}`);
+}
+    const result = await r.json();
+    return result
+} catch (e) {
+    throw e;
+}
+}
   
